@@ -71,3 +71,7 @@
 .equal {
   border-radius: 0 0 30px 0;
 }
+
+.ac {
+  min-width: 200px;
+}

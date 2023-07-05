@@ -61,6 +61,26 @@ function clearAll() {
    out.textContent = 0;
 }
 
+//Изменение знака
+
+function changeFistNumSign(num) {
+   if (Math.sign(num) === 1) {
+      firstNum = -num;
+   } else {
+      firstNum = num * -1;
+   }
+   out.textContent = firstNum;
+}
+
+function changeSecondNumSign(num) {
+   if (Math.sign(num) === 1) {
+      secondNum = -num;
+   } else {
+      secondNum = num * -1;
+   }
+   out.textContent = secondNum;
+}
+
 //Поиск и замена лишней точки
 //Перевод числа в строку при повторной операции
 
@@ -75,6 +95,7 @@ function replaceNumber(number) {
    return array.join("");
 }
 
+
 //Нажатие кнопок
 const btns = [...document.querySelectorAll(".btn")];
 
@@ -82,6 +103,15 @@ btns.forEach((elem) => {
    elem.addEventListener("click", () => {
       if (elem.textContent == "ac") {
          clearAll();
+         return;
+      }
+
+      if (elem.textContent == "+/-") {
+         if (firstNum && secondNum) {
+            changeSecondNumSign(secondNum);
+         } else {
+            changeFistNumSign(firstNum);
+         }
          return;
       }
 
